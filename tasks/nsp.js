@@ -1,6 +1,7 @@
 'use strict';
 
 var Nsp = require('nsp');
+var fs = require('fs');
 
 module.exports = function (grunt) {
 
@@ -54,6 +55,11 @@ module.exports = function (grunt) {
     Nsp.check(payload, function (err, data) {
 
       var output = formatter(err, data);
+
+      if (config.outputFile) {
+        fs.writeFileSync(config.outputFile, output);
+      }
+
       if (err || (data.length > 0 && failOnVulns)) {
         grunt.fail.warn(output);
         return done();
