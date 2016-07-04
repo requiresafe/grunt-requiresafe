@@ -30,7 +30,8 @@ This package supports the following options.
 - package (object): The contents of a single package.json file [required]
 - shrinkwrap (object): The contents of a single npm-shrinkwrap.json file (optional, but is a much more efficient check)
 - output (string): Adjust the output format to any formatter supported by [nsp](https://github.com/nodesecurity/nsp)
-- failOnVulns (boolean): When `true` fails the Grunt build, when `false` allows the build to proceed. Default is `true`. 
+- failOnVulns (boolean): When `true` fails the Grunt build, when `false` allows the build to proceed. Default is `true`.
+- outputFile (string): The filename of a file to write the formatted results to. (optional, results are always written to console)
 
 ## Command Line Options
 
