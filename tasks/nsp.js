@@ -1,7 +1,7 @@
 'use strict';
 
 var Nsp = require('nsp');
-var fs = require('fs');
+var Fs = require('fs');
 
 module.exports = function (grunt) {
 
@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 
     var payload = {};
     var formatter = Nsp.formatters.default;
-    var failOnVulns = config.failOnVulns === undefined ? true: config.failOnVulns; 
+    var failOnVulns = config.failOnVulns === undefined ? true : config.failOnVulns;
 
     if (config.package) {
       payload.package = config.package;
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
       var output = formatter(err, data);
 
       if (config.outputFile) {
-        fs.writeFileSync(config.outputFile, output);
+        Fs.writeFileSync(config.outputFile, output);
       }
 
       if (err || (data.length > 0 && failOnVulns)) {
